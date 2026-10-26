@@ -1,0 +1,12 @@
+[
+  {
+    "question": "REMPLACE : une question dont tu connais la réponse dans ton PDF",
+    "expected_keywords": ["mot-clé attendu 1", "mot-clé attendu 2"],
+    "expected_source": "nom_du_fichier.pdf"
+  },
+  {
+    "question": "Quelle est la capitale de l'Australie ?",
+    "expected_keywords": ["Je ne trouve pas"],
+    "expected_source": null
+  }
+]

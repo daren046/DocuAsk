@@ -1,0 +1,10 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+psycopg[binary]==3.2.3
+pgvector==0.3.6
+anthropic>=0.40.0
+fastembed==0.4.2
+pypdf==5.1.0
+pytesseract==0.3.13
+pdf2image==1.17.0
+pydantic==2.10.4

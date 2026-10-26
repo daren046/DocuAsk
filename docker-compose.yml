@@ -1,0 +1,30 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: docuask
+      POSTGRES_PASSWORD: docuask
+      POSTGRES_DB: docuask
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docuask"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://docuask:docuask@db:5432/docuask
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./eval:/app/eval
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
